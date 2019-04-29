@@ -30,19 +30,19 @@ public class RemoveDuplicate {
         // Sorting array to bring duplicates together
         Arrays.sort(numbersWithDuplicates);
 
-        int[] result = new int[numbersWithDuplicates.length];
-        int previous = numbersWithDuplicates[0];
+        int[] result = new int[numbersWithDuplicates.length]; // result will be initialized with 0 values
+        int previousElement = numbersWithDuplicates[0];
 
-        result[0] = previous;
+        result[0] = previousElement;
 
         for (int i = 1; i < numbersWithDuplicates.length; i++) {
-            int ch = numbersWithDuplicates[i];
+            int currentElement = numbersWithDuplicates[i];
 
-            if (previous != ch) {
-                result[i] = ch;
+            if (previousElement != currentElement) {
+                result[i] = currentElement;
             }
 
-            previous = ch;
+            previousElement = currentElement; // previousElement will become the currentElement
         }
 
         return result;
