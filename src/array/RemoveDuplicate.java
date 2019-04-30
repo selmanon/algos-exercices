@@ -16,6 +16,8 @@ public class RemoveDuplicate {
         for (int[] input : test) {
             System.out.println("Array with Duplicates       : " + Arrays.toString(input));
             System.out.println("After removing duplicates   : " + Arrays.toString(removeDuplicates(input)));
+            System.out.println();
+
         }
     }
 
@@ -27,22 +29,25 @@ public class RemoveDuplicate {
      */
     public static int[] removeDuplicates(int[] numbersWithDuplicates) {
 
-        // Sorting array to bring duplicates together
+        // Sorting array to bring duplicate together
         Arrays.sort(numbersWithDuplicates);
 
-        int[] result = new int[numbersWithDuplicates.length]; // result will be initialized with 0 values
-        int previousElement = numbersWithDuplicates[0];
+        int result[] = new int[numbersWithDuplicates.length];
 
-        result[0] = previousElement;
+        result[0] = numbersWithDuplicates[0];
 
-        for (int i = 1; i < numbersWithDuplicates.length; i++) {
-            int currentElement = numbersWithDuplicates[i];
+        int currentElement = numbersWithDuplicates[0];
 
-            if (previousElement != currentElement) {
-                result[i] = currentElement;
+
+        for(int i = 1; i < numbersWithDuplicates.length - 1; i++){
+
+
+            if(numbersWithDuplicates[i] != currentElement){
+                result[i] = numbersWithDuplicates[i];
             }
 
-            previousElement = currentElement; // previousElement will become the currentElement
+            currentElement = numbersWithDuplicates[i];
+
         }
 
         return result;
