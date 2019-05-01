@@ -1,19 +1,20 @@
 package string;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PrintFirstNonRepeatedChar {
-    public static void main(String[] args) {
-        System.out.println(printFirstNonRepeatedChar("aabbccaaddsddff"));
 
+    public static void main(String[] args) {
+        System.out.println(printFirstNonRepeatedChar("aabccddeff"));
     }
 
     static char printFirstNonRepeatedChar(String word) {
-        List<Character> repeating = new ArrayList<>();
+        Set<Character> repeating = new HashSet<>();
         List<Character> nonRepeating = new ArrayList<>();
 
-        nonRepeating.add(word.toCharArray()[0]);
         for (int i = 0; i < word.length(); i++) {
             char letter = word.charAt(i);
             if (repeating.contains(letter)) {
